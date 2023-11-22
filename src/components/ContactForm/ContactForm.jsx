@@ -78,8 +78,12 @@ export const ContactForm = () => {
           <Button type="submit">Add contact</Button>
         </Form>
       </Formik>
-       {isLoading && <Loader />}
-      {error && <Error message={error} />}
+      {isLoading && <Loader />}
+      {error && (
+        <Error
+          message={isLoading ? error : 'Please register to add contacts.'}
+        />
+      )}
     </main>
   );
 };
