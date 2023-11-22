@@ -20,10 +20,9 @@ export const RegisterForm = () => {
   };
 
   return (
-      <form
-          onSubmit={handleSubmit}
-          autoComplete="off">
-      <Label><InputTitle>Username</InputTitle>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <Label>
+        <InputTitle>Username</InputTitle>
         <StyleField type="text" name="name" />
       </Label>
       <Label>

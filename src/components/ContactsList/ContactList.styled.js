@@ -18,6 +18,5 @@ export const ListItem = styled.li`
 
   & + & {
     border-top: 1px solid ${p => p.theme.colors.lightGray};
-
   }
 `;

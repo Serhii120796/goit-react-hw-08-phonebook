@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const MainTitle = styled.h1`
-text-align: center;
-`
+  text-align: center;
+`;
 
 export const FilterTitle = styled.span`
   display: block;

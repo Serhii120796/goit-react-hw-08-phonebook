@@ -35,11 +35,4 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
 });
 
-// export const store = configureStore({
-//   reducer: {
-//     contacts: contactsReducer,
-//     filter: filterReducer,
-//   },
-// });
-
 export const persistor = persistStore(store);

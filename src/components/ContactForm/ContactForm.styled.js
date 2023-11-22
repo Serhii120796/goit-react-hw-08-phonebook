@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { Field, ErrorMessage } from 'formik';
 
 export const FormTitle = styled.h1`
-text-align: center;
-padding: 0;
-`
+  text-align: center;
+  padding: 0;
+`;
 export const Label = styled.label`
   width: 100%;
 `;

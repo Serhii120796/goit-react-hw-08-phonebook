@@ -30,9 +30,13 @@ export default function Contacts() {
       </HelmetProvider>
       <div>{isLoading && 'Request in progress...'}</div>
       <Filter />
-      {contacts.length > 0 ? <ContactsList /> :
+      {contacts.length > 0 ? (
+        <ContactsList />
+      ) : (
         <Link to="/" style={{ textAlign: 'center' }}>
-          <Button>Please add contacts</Button></Link>}
+          <Button>Please add contacts</Button>
+        </Link>
+      )}
       {isLoading && <Loader />}
       {error && <Error message={error} />}
     </>

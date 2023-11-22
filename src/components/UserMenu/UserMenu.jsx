@@ -9,11 +9,9 @@ export const UserMenu = () => {
   const { user } = useAuth();
 
   return (
-    <Wrapper >
+    <Wrapper>
       <UserName>{user.name}</UserName>
-          <Button type="button"
-            onClick={() => dispatch(logOut())}
-          >
+      <Button type="button" onClick={() => dispatch(logOut())}>
         Logout
       </Button>
     </Wrapper>
