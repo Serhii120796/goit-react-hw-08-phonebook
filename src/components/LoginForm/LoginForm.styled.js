@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
-  max-width: 400px;
-  margin: 0 auto;
-`;
-
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
@@ -20,7 +15,6 @@ export const InputTitle = styled.span`
 export const StyleField = styled.input`
   width: 100%;
   display: block;
-  background-color: inherit;
   border: ${p => p.theme.borders.gray};
   border-radius: ${p => p.theme.spasing(1)};
 `;

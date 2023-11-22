@@ -1,12 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { FilterTitle, StyleInput } from './Filter.styled';
+import { MainTitle, FilterTitle, StyleInput } from './Filter.styled';
 import { findContact } from 'redux/Contacts/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
+
   return (
     <>
-      <h2>Contacts</h2>
+      <MainTitle>Contacts</MainTitle>
       <label>
         <FilterTitle>Find contacts by name</FilterTitle>
         <StyleInput

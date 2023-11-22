@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const MainTitle = styled.h1`
+text-align: center;
+`
+
 export const FilterTitle = styled.span`
   display: block;
   font-weight: ${p => p.theme.weight.accent};

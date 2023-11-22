@@ -8,7 +8,7 @@ export const Container = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 400px;
   height: 95%;
   padding: ${p => p.theme.spasing(5)};
   border-radius: ${p => p.theme.spasing(3)};

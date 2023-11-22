@@ -1,9 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import {
-  Main,
   FormTitle,
-  FormWraper,
   Label,
   InputTitle,
   FieldWraper,
@@ -14,18 +12,26 @@ import { Button } from '../ContactItem/ContactItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/Contacts/operations';
 import { selectContacts } from 'redux/Contacts/selectors';
+import { selectIsLoading, selectError } from 'redux/Contacts/selectors';
+import { Error } from 'components/Error/Error';
+import { Loader } from 'components/Loader/Loader';
 
 const schema = yup.object().shape({
   name: yup.string().min(2).required('Enter a name'),
   number: yup
     .string()
-    .matches(/(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/g, 'Enter a phone number with at least 9 digits')
+    .matches(
+      /(?:([+]\d{1,4})[-.\s]?)?(?:[(](\d{1,3})[)][-.\s]?)?(\d{1,4})[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})/g,
+      'Enter a phone number with at least 9 digits'
+    )
     .required('Enter a phone number'),
 });
 
 export const ContactForm = () => {
   const contactList = useSelector(selectContacts);
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const handleSubmit = (newContact, { resetForm }) => {
     const checkContact = contactList.some(
@@ -40,18 +46,17 @@ export const ContactForm = () => {
   };
 
   return (
-    <Main>
-    <FormTitle>Phonebook</FormTitle>
-    <Formik
-      initialValues={{
-        name: '',
-        number: '',
-      }}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
-    >
-      <Form autoComplete="off">
-        <FormWraper>
+    <main>
+      <FormTitle>Phonebook</FormTitle>
+      <Formik
+        initialValues={{
+          name: '',
+          number: '',
+        }}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <Form autoComplete="off">
           <Label>
             <InputTitle>Name</InputTitle>
             <FieldWraper>
@@ -71,9 +76,10 @@ export const ContactForm = () => {
             </FieldWraper>
           </Label>
           <Button type="submit">Add contact</Button>
-        </FormWraper>
-      </Form>
+        </Form>
       </Formik>
-      </Main>
+       {isLoading && <Loader />}
+      {error && <Error message={error} />}
+    </main>
   );
 };
