@@ -5,7 +5,7 @@ export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
+    <nav style={{minWidth: '125px'}}>
       <Link to="/">Home</Link>
       {isLoggedIn && <Link to="/contacts">Contacts</Link>}
     </nav>

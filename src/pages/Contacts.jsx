@@ -8,6 +8,8 @@ import { selectIsLoading, selectError } from 'redux/Contacts/selectors';
 import { selectVisibleContacts } from 'redux/Contacts/selectors';
 import { Error } from 'components/Error/Error';
 import { Loader } from 'components/Loader/Loader';
+import { Link } from 'react-router-dom';
+import { Button } from 'components/ContactItem/ContactItem.styled';
 
 export default function Contacts() {
   const contacts = useSelector(selectVisibleContacts);
@@ -28,7 +30,9 @@ export default function Contacts() {
       </HelmetProvider>
       <div>{isLoading && 'Request in progress...'}</div>
       <Filter />
-      {contacts.length > 0 && <ContactsList />}
+      {contacts.length > 0 ? <ContactsList /> :
+        <Link to="/" style={{ textAlign: 'center' }}>
+          <Button>Please add contacts</Button></Link>}
       {isLoading && <Loader />}
       {error && <Error message={error} />}
     </>
