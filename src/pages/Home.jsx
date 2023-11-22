@@ -3,7 +3,7 @@ export default function Home() {
   return (
     <div >
       <h2 >
-        Task manager welcome page
+        Task manager
       </h2>
     </div>
   );
