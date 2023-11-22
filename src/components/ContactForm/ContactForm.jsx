@@ -1,6 +1,8 @@
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import {
+  Main,
+  FormTitle,
   FormWraper,
   Label,
   InputTitle,
@@ -38,8 +40,8 @@ export const ContactForm = () => {
   };
 
   return (
-    <>
-    <h1>Phonebook</h1>
+    <Main>
+    <FormTitle>Phonebook</FormTitle>
     <Formik
       initialValues={{
         name: '',
@@ -72,6 +74,6 @@ export const ContactForm = () => {
         </FormWraper>
       </Form>
       </Formik>
-      </>
+      </Main>
   );
 };
